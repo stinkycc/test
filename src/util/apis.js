@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function register( {username, setAddress, setPhone, account} ){
-  return await axios.post('oms/register', {
+  return await axios.post('http://3.15.9.180/oms/register', {
     userName : username,
     address : setAddress,
     phone : setPhone,
@@ -11,19 +11,19 @@ export async function register( {username, setAddress, setPhone, account} ){
 
 
 export async function login( {email, password} ) {
-    return await axios.post('oms/login', {
+    return await axios.post('http://3.15.9.180/oms/login', {
         email: email,
         password: password
       })
 } 
 
 export async function logout () {
-    return await axios.post('oms/logout', {})
+    return await axios.post('http://3.15.9.180/oms/logout', {})
 }
 
 // sell page
 export async function sell( { values, trans, deliv, curTime, userName, imageUrl} ) {
-    return await axios.post('oms/post/createpost', {
+    return await axios.post('http://3.15.9.180/oms/post/createpost', {
       deliveryType : deliv,
       transactionMethod : trans,
       postDate : curTime,
