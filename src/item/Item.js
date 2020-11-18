@@ -15,50 +15,6 @@ import {useParams} from 'react-router-dom'
 import defaultQueryFn from '../util/defaultQueryFn';
 import { useHistory } from "react-router-dom";
 
-const containerStyle = {
-    width: '100%',
-    height: '200px'
-  };
-   
-  const center = {
-    lat: 37,
-    lng: -121
-  };
-   
-function MapComponent() {
-    const [map, setMap] = React.useState(null)
-   
-    const onLoad = React.useCallback(function callback(map) {
-      const bounds = new window.google.maps.LatLngBounds();
-      map.fitBounds(bounds);
-      setMap(map)
-    }, [])
-   
-    const onUnmount = React.useCallback(function callback(map) {
-      setMap(null)
-    }, [])
-   
-    return (
-      <LoadScript
-        googleMapsApiKey="*********"
-      >
-        <GoogleMap
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={10}
-          onLoad={onLoad}
-          onUnmount={onUnmount}
-        >
-          { /* Child components, such as markers, info windows, etc. */ }
-          <></>
-        </GoogleMap>
-      </LoadScript>
-    )
-  }
-React.memo(MapComponent)
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 const API_ROOT = 'https://my-json-server.typicode.com/stinkycc/SHMTest/post'
 
 const useStyles = makeStyles((theme) => ({
